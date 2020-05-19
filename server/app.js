@@ -1,15 +1,13 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
+const router = require("./routes");
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("Hiiiiiiiii");
-});
-
-app.set("port", process.env.PORT || 4000);
+app.use("/api/posts", router);
 
 module.exports = app;
