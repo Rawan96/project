@@ -3,12 +3,13 @@ const cors = require("cors");
 
 const app = express();
 
-var corsOptions = {
+/*const corsOptions = {
   origin: "http://localhost:4001",
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
