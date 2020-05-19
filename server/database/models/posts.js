@@ -9,20 +9,11 @@ const postSchema = new Schema({
     type: "String",
     required: true,
   },
-  content: {
+  description: {
     type: "String",
-    required: true,
-  },
-  cuid: {
-    type: "String",
-    required: true,
-  },
-  dateAdded: {
-    type: "Date",
-    default: Date.now,
     required: true,
   },
 });
 
-const Posts = model("Posts", postSchema);
-module.exports = Posts;
+const Post = model("Post", postSchema);
+module.exports = Post;
