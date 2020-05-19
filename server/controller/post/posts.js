@@ -1,4 +1,4 @@
-const Post = require("../database/models/posts");
+const Post = require("../../database/models/posts");
 
 // Create and save a post in the database
 const createPost = (req, res) => {
@@ -91,4 +91,24 @@ const deletePost = (req, res) => {
     });
 };
 
-module.exports = { createPost, findOnePost, deletePost, updatePost };
+// get a post by title
+const getPostsByTitle = async (req, res) => {
+  const {
+    params: { search },
+  } = req;
+  const result = await Blog.find();
+  if (!result) {
+    res.status(200).json({ msg: "There is no result" });
+  } else {
+    const data = result.filter(({ title }) => title.includes(search));
+    res.status(200).json({ data });
+  }
+};
+
+module.exports = {
+  createPost,
+  findOnePost,
+  deletePost,
+  updatePost,
+  getPostsByTitle,
+};
