@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "antd/dist/antd.css";
 import "./App.css";
+import CardComponent from "./components/Card";
 
 import AddPost from "./components/AddPost";
 
@@ -19,6 +21,7 @@ function App() {
             </li>
           </div>
         </nav>
+        <CardComponent />
 
         <div>
           <Switch>
