@@ -9,9 +9,13 @@ postsQueries.create = ({ title, img, description }) => {
 
 //Find a single post with an id
 postsQueries.findOne = (id) => {
-  return Posts.findById(id);
+  return Posts.findById({ id });
 };
 
+//Find a post by title
+postsQueries.findOne = (title) => {
+  return Posts.findOne({ title });
+};
 // Update a post by the id in the request
 postsQueries.update = (req, res) => {
   return Posts.findByIdAndUpdate(id, req.body, { useFindAndModify: false });
@@ -19,7 +23,7 @@ postsQueries.update = (req, res) => {
 
 // Delete a post with the specified id in the request
 postsQueries.delete = (id) => {
-  return Posts.findByIdAndRemove(id);
+  return Posts.findByIdAndRemove({ id });
 };
 
 module.exports = postsQueries;
