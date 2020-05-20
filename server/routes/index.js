@@ -5,8 +5,17 @@ const {
   findOnePost,
   deletePost,
   updatePost,
+  getPostsByTitle,
+  client,
+  server,
+  register,
+  login,
+  logout,
+  getAllUsers,
+  deleteAllUsers,
 } = require("../controller");
 
+// Post Routes
 // Create a new post
 router.post("/", createPost);
 
@@ -18,5 +27,8 @@ router.delete("/:id", deletePost);
 
 // Update a post with id
 router.put("/:id", updatePost);
+
+//User Routes
+//
 
 module.exports = router;

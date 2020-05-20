@@ -24,21 +24,22 @@ const register= async (req,res,next)=>{
 }
 
 const login= async(req,res,next)=>{
-    //check user if register
+
+
     const {body:{email,password}}=req;
     try{
         const result= await User.findOne({email})
-        if(!result)return res.json({msg:'user dosent register!!'})
-        //compare password
+        if(!result)return res.json({msg:'The user does not register'})
+
+
         const match = await bcrypt.compare(password, result.password);
         if(!match){
             const err = new Error();
-            err.msg = 'incorrect password';
+            err.msg = 'Incorrect password';
             err.status = 403;
             throw err;
         }
         const {_id,name}=result
-        //create token for user
         const token= jwt.sign({_id,name},process.env.SECRET_KEY);
         res.cookie('token',token)
         res.json({msg:`welcome,${name}`})
@@ -49,7 +50,7 @@ const login= async(req,res,next)=>{
 }
 
 const logout=(req,res)=>{
-    res.clearCookie('token').json({ message: 'logged out successfully' });
+    res.clearCookie('token').json({ message: 'You logged out successfully' });
 
 }
 
