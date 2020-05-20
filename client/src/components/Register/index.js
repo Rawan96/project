@@ -5,7 +5,15 @@ import GoogleAuthentication from "../GoogleLogin";
 import Axios from "axios";
 
 const RegisterComponent = withRouter((props) => {
-  const [error, seError] = useState();
+  const [error, setError] = useState();
+
+  const layout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
+  };
+  const tailLayout = {
+    wrapperCol: { offset: 8, span: 16 },
+  };
 
   const onFinish = (values) => {
     Axios.post("/api/posts/register", values)
@@ -14,7 +22,7 @@ const RegisterComponent = withRouter((props) => {
         props.history.push("/");
       })
       .catch((res) => {
-        seError("Email is exists or an error occur while you are registering");
+        setError("Email is exists or an error occur while you are registering");
       });
   };
 
@@ -22,6 +30,7 @@ const RegisterComponent = withRouter((props) => {
     <div>
       <h2>Register</h2>
       <Form
+        {...layout}
         name="basic"
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -57,7 +66,7 @@ const RegisterComponent = withRouter((props) => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item>
+        <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit" className="btn">
             Submit
           </Button>

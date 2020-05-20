@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom";
 import GoogleAuthentication from "../GoogleLogin";
 import Axios from "axios";
 
-const Login = withRouter((props) => {
-  const [error, setError] = useState();
+const Post = withRouter((props) => {
+  const [error, seError] = useState();
 
   const layout = {
     labelCol: { span: 8 },
@@ -16,49 +16,52 @@ const Login = withRouter((props) => {
   };
 
   const onFinish = (values) => {
-    Axios.post("/api/posts/login", values)
+    Axios.post("/api/posts/post", values)
       .then(({ data: { msg } }) => {
         message.success(msg);
         props.history.push("/");
       })
       .catch((res) => {
-        console.log(res);
-        setError(
-          "Your password is incorrect or the email you are trying to login with is not exist"
-        );
+        seError("Error occur while you are adding the post");
       });
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="blog-cont">
+      <h1>Add New Post</h1>
       <Form
         {...layout}
         name="basic"
-        initialValues={{ remember: true }}
         onFinish={onFinish}
+        initialValues={{ remember: true }}
         className="form-con"
       >
         <Form.Item
-          label="email"
-          name="email"
+          label="title"
+          name="title"
+          rules={[{ required: true, message: "Please input blog title!" }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="description"
+          name="description"
           rules={[
-            {
-              type: "email",
-              required: true,
-              message: "Please enter your email",
-            },
+            { required: true, message: "Please input blog description!" },
           ]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please enter your password" }]}
+          label="img url"
+          name="img"
+          rules={[
+            { required: true, message: "Please input blog img address!" },
+          ]}
         >
-          <Input.Password />
+          <Input />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
@@ -73,4 +76,4 @@ const Login = withRouter((props) => {
   );
 });
 
-export default Login;
+export default Post;

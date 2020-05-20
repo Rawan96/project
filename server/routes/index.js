@@ -22,7 +22,7 @@ const {
 
 // Post Routes
 // Create a new post
-router.post("/", protectedRoute, createPost);
+router.post("/post", protectedRoute, createPost);
 
 // Find a single post with id
 router.get("/:id", findOnePost);
