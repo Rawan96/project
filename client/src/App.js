@@ -11,22 +11,28 @@ function App() {
     <Router>
       <div>
         <nav>
-          <a href="/posts">Blog</a>
           <div>
-            <li>
-              <Link to={"/posts"}>Posts</Link>
-            </li>
-            <li>
-              <Link to={"/add"}>Add</Link>
-            </li>
+            <h3>Blog</h3>
           </div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/register">Sign Up</Link>
+            </li>
+            <li>
+              <Link to="/login">login</Link>
+            </li>
+            <li>
+              <Link to="/addPost">Add Post</Link>
+            </li>
+          </ul>
         </nav>
         <CardComponent />
 
         <div>
-          <Switch>
-            <Route exact path="/add" component={AddPost} />
-          </Switch>
+          <Switch></Switch>
         </div>
       </div>
     </Router>
