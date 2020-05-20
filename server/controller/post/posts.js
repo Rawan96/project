@@ -91,18 +91,24 @@ const deletePost = (req, res) => {
     });
 };
 
-// get a post by title
-const getPostsByTitle = async (req, res) => {
-  const {
-    params: { search },
-  } = req;
-  const result = await Blog.find();
-  if (!result) {
-    res.status(200).json({ msg: "There is no result" });
-  } else {
-    const data = result.filter(({ title }) => title.includes(search));
-    res.status(200).json({ data });
-  }
+// find a post by title
+const getPostsByTitle = (req, res) => {
+  const title = req.params.title;
+
+  Post.findOne(title)
+    .then((data) => {
+      if (!data) {
+        res.status(200).send({ message: "There is no result" });
+      } else {
+        res.send(data);
+      }
+    })
+
+    .catch((err) => {
+      res.status(500).send({
+        message: "Couldn't find a blog with this name",
+      });
+    });
 };
 
 module.exports = {
