@@ -15,18 +15,25 @@ const {
   deleteAllUsers,
 } = require("../controller");
 
+const {
+  protectedRoute,
+  checkEmail,
+  registerValidation,
+  loginValidation,
+} = require("../middleware");
+
 // Post Routes
 // Create a new post
-router.post("/", createPost);
+router.post("/", protectedRoute, createPost);
 
 // Find a single post with id
-router.get("/:id", findOnePost);
+router.get("/:id", protectedRoute, findOnePost);
 
 // Delete a post with id
-router.delete("/:id", deletePost);
+router.delete("/:id", protectedRoute, deletePost);
 
 // Update a post with id
-router.put("/:id", updatePost);
+router.put("/:id", protectedRoute, updatePost);
 
 //User Routes
 //
