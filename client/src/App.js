@@ -4,6 +4,8 @@ import "antd/dist/antd.css";
 import "./App.css";
 import CardComponent from "./components/Card";
 
+import AddPost from "./components/AddPost";
+
 function App() {
   return (
     <Router>
@@ -20,6 +22,12 @@ function App() {
           </div>
         </nav>
         <CardComponent />
+
+        <div>
+          <Switch>
+            <Route exact path="/add" component={AddPost} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
