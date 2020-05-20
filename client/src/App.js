@@ -5,6 +5,7 @@ import "./App.css";
 import CardComponent from "./components/Card";
 import Register from "./components/Register";
 import Login from "./components/login";
+import AddPost from "./components/AddPost";
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route exact path="/login">
               <Login />
+            </Route>
+            <Route exact path="/addPost">
+              <AddPost />
             </Route>
           </Switch>
         </div>
