@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./App.css";
 import CardComponent from "./components/Card";
-
-import AddPost from "./components/AddPost";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -32,7 +31,11 @@ function App() {
         <CardComponent />
 
         <div>
-          <Switch></Switch>
+          <Switch>
+            <Route exact path="/register">
+              <Register />
+            </Route>
+          </Switch>
         </div>
       </div>
     </Router>
