@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import "./App.css";
 import CardComponent from "./components/Card";
 import Register from "./components/Register";
+import Login from "./components/login";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           <Switch>
             <Route exact path="/register">
               <Register />
+            </Route>
+            <Route exact path="/login">
+              <Login />
             </Route>
           </Switch>
         </div>
