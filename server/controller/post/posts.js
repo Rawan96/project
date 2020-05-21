@@ -17,6 +17,7 @@ const getAllPosts = (req, res) => {
 // Create and save a post in the database
 const createPost = (req, res) => {
   // Validate request
+  console.log(req.body);
   if (!req.body.title) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
