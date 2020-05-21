@@ -3,6 +3,7 @@ import { Form, Input, Button, message, Alert } from "antd";
 import { withRouter } from "react-router-dom";
 import GoogleAuthentication from "../GoogleLogin";
 import Axios from "axios";
+import "./index.css";
 
 const RegisterComponent = withRouter((props) => {
   const [error, setError] = useState();
@@ -27,7 +28,7 @@ const RegisterComponent = withRouter((props) => {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Register</h2>
       <Form
         {...layout}

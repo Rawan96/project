@@ -1,0 +1,10 @@
+.signup-container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.ant-input {
+    border-radius: 25px;
+    height: 50px;
+    border: 1px solid black
+}

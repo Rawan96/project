@@ -3,6 +3,7 @@ import { GoogleLogin } from "react-google-login";
 import { withRouter } from "react-router-dom";
 import { message } from "antd";
 import axios from "axios";
+import "./index.css";
 
 const GoogleAuthentication = withRouter((props) => {
   const successResponse = (response) => {
@@ -23,6 +24,7 @@ const GoogleAuthentication = withRouter((props) => {
   return (
     <div>
       <GoogleLogin
+        className="google-button"
         clientId="1033191101999-pknjrq16npib35r2b5k3cm3nbu35cld4.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={successResponse}

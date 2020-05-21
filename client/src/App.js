@@ -13,10 +13,7 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <div>
-            <h3>Blog</h3>
-          </div>
+        <nav className="">
           <ul>
             <li>
               <Link to="/">Main Page</Link>

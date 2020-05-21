@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test tape server//.test.js",
-    "start": "NODE_ENV=production node index.js",
+    "start": " node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "kill": "fuser -k 5000/tcp",
     "heroku-postbuild": "cd client && npm install && npm run build"
