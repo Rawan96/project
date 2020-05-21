@@ -1,5 +1,19 @@
 const Post = require("../../database/models/posts");
 
+//get all the posts
+const getAllPosts = (req, res) => {
+  post
+    .find()
+    .then((posts) => {
+      if (!posts) return res.status(200).send({ message: "There is no posts" });
+      else res.status(200).send(posts);
+    })
+
+    .catch((err) => {
+      res.status(500).send({ message: "Error finding post with id=" + id });
+    });
+};
+
 // Create and save a post in the database
 const createPost = (req, res) => {
   // Validate request
@@ -117,4 +131,5 @@ module.exports = {
   deletePost,
   updatePost,
   getPostsByTitle,
+  getAllPosts,
 };

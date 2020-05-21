@@ -2,6 +2,11 @@ const Posts = require("../models/posts");
 
 const postsQueries = {};
 
+//get All posts
+postsQueries.findAllBlogs = () => {
+  return Posts.find();
+};
+
 // Create and Save a new post
 postsQueries.create = ({ title, img, description }) => {
   return Posts.create({ title, img, description });
