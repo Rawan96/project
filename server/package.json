@@ -4,24 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "app": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test tape server//.test.js",
+    "start": "NODE_ENV=production node server/index.js",
+    "dev": "NODE_ENV=development nodemon server/index.js",
+    "kill": "fuser -k 5000/tcp",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "google-auth-library": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.15",
+    "mongoose": "^5.9.13",
     "path": "^0.12.7",
     "yup": "^0.28.5"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4",
+    "tape": "^5.0.0"
   }
 }

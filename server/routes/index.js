@@ -11,6 +11,7 @@ const {
   logout,
   getAllUsers,
   deleteAllUsers,
+  getAllBlogs,
 } = require("../controller");
 
 const {
@@ -23,7 +24,7 @@ const {
 // Post Routes
 
 //get all posts
-Router.get("/", getAllBlogs);
+//router.get("/", getAllBlogs);
 
 // Create a new post
 router.post("/post", protectedRoute, createPost);
