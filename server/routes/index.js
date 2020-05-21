@@ -21,6 +21,10 @@ const {
 } = require("../middleware");
 
 // Post Routes
+
+//get all posts
+Router.get("/", getAllBlogs);
+
 // Create a new post
 router.post("/post", protectedRoute, createPost);
 

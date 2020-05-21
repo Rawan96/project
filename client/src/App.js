@@ -2,10 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./App.css";
+
 import CardComponent from "./components/Card";
 import Register from "./components/Register";
 import Login from "./components/login";
 import AddPost from "./components/AddPost";
+import MainPage from "./components/MainPage";
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
           </div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Main Page</Link>
             </li>
             <li>
               <Link to="/register">Sign Up</Link>
@@ -30,10 +32,12 @@ function App() {
             </li>
           </ul>
         </nav>
-        <CardComponent />
 
         <div>
           <Switch>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
             <Route exact path="/register">
               <Register />
             </Route>

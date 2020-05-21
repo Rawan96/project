@@ -12,13 +12,13 @@ const CardComponent = (props) => {
         style={{ width: 900 }}
         cover={<img alt="card__img" src={img} />}
       >
-        <Meta title={"Title:"} description={title} />
+        <Meta title="Title:" description={title} />
         <br />
-        <Meta title={"Description:"} description={description} />
+        <Meta title="Description:" description={description} />
         <br />
-        <Meta title={"Author:"} description={authorName} />
+        <Meta title="Author:" description={authorName} />
         <br />
-        <Meta title={"Posted On:"} title={moment(date).format("LLLL")} />
+        <Meta title="Posted On:" title={moment(date).format("LLLL")} />
       </Card>
     </div>
   );
