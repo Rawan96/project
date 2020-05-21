@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CardComponent from "../Card";
-import { Spin, Alert } from "antd";
 
 function MainPage() {
   const [error, setError] = useState();
