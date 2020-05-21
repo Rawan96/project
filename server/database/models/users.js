@@ -13,9 +13,6 @@ const UserSchema = new Schema({
     type: "String",
     required: true,
   },
-  userId: {
-    type: "string",
-  },
 });
 
 const Users = model("Users", UserSchema);

@@ -16,7 +16,7 @@ const Login = withRouter((props) => {
   };
 
   const onFinish = (values) => {
-    Axios.post("/api/posts/login", values)
+    Axios.post("/api/v/login", values)
       .then(({ data: { msg } }) => {
         message.success(msg);
         props.history.push("/");
