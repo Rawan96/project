@@ -16,7 +16,7 @@ const RegisterComponent = withRouter((props) => {
   };
 
   const onFinish = (values) => {
-    Axios.post("/api/posts/register", values)
+    Axios.post("/api/v/register", values)
       .then(({ data: { msg } }) => {
         message.success(msg);
         props.history.push("/");

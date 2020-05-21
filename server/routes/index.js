@@ -27,26 +27,26 @@ const {
 router.get("/", getAllPosts);
 
 // Create a new post
-router.post("/post", protectedRoute, createPost);
+router.post("/post", createPost);
 
 // Find a single post with id
-router.get("/:id", findOnePost);
+router.get("/post", findOnePost);
 
 // Delete a post with id
-router.delete("/:id", protectedRoute, deletePost);
+router.delete("/post", protectedRoute, deletePost);
 
 // Update a post with id
-router.put("/:id", protectedRoute, updatePost);
+router.put("/post", protectedRoute, updatePost);
 
 //Get Post by it's title
 router.get("/post/:search", getPostsByTitle);
 
 //User Routes
 //get all users
-router.get("/users", getAllUsers);
+router.get("/user", getAllUsers);
 
 //delete all users
-router.delete("/users", deleteAllUsers);
+router.delete("/user", deleteAllUsers);
 
 //register user
 router.post("/register", registerValidation, checkEmail, register);

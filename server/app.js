@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, "..", "client", "build")));
 
-app.use("/api/posts", router);
+app.use("/api/v", router);
 
 app.use(client);
 app.use(server);

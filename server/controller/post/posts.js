@@ -2,8 +2,7 @@ const Post = require("../../database/models/posts");
 
 //get all the posts
 const getAllPosts = (req, res) => {
-  post
-    .find()
+  Post.find()
     .then((posts) => {
       if (!posts) return res.status(200).send({ message: "There is no posts" });
       else res.status(200).send(posts);
@@ -17,10 +16,8 @@ const getAllPosts = (req, res) => {
 // Create and save a post in the database
 const createPost = (req, res) => {
   // Validate request
-  console.log(req.body);
   if (!req.body.title) {
     res.status(400).send({ message: "Content can not be empty!" });
-    return;
   }
 
   // Create a post
@@ -31,8 +28,7 @@ const createPost = (req, res) => {
   });
 
   // Save post in the database
-  post
-    .save(post)
+  Post.save(post)
     .then((data) => {
       res.send(data);
     })

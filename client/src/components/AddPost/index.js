@@ -16,7 +16,7 @@ const Post = withRouter((props) => {
   };
 
   const onFinish = (values) => {
-    Axios.post("/api/posts/post", values)
+    Axios.post("/api/v/post", values)
       .then(({ data: { msg } }) => {
         message.success(msg);
         props.history.push("/");

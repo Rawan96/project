@@ -10,9 +10,10 @@ function MainPage() {
 
   useEffect(() => {
     axios
-      .get("/api/posts")
-      .then(({ data: { data } }) => {
-        setPosts(data);
+      .get("/api/v/")
+      .then((data) => {
+        console.log(data.data);
+        setPosts(data.data);
       })
       .catch((error) => {
         setError(error);
@@ -21,8 +22,8 @@ function MainPage() {
 
   useEffect(() => {
     axios
-      .get(`/api/posts/post/${search}`)
-      .then(({ data: { data } }) => {
+      .get(`/api/v/post/${search}`)
+      .then((data) => {
         if (data) {
           setSearchData(data);
         } else {
