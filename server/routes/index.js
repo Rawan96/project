@@ -24,19 +24,19 @@ const {
 // Post Routes
 
 //get all posts
-router.get("/", getAllPosts);
+router.get("/post", getAllPosts);
 
 // Create a new post
 router.post("/post", createPost);
 
 // Find a single post with id
-router.get("/post", findOnePost);
+router.get("/post/id", findOnePost);
 
 // Delete a post with id
-router.delete("/post", protectedRoute, deletePost);
+router.delete("/post/id", protectedRoute, deletePost);
 
 // Update a post with id
-router.put("/post", protectedRoute, updatePost);
+router.put("/post/id", protectedRoute, updatePost);
 
 //Get Post by it's title
 router.get("/post/:search", getPostsByTitle);
@@ -46,7 +46,7 @@ router.get("/post/:search", getPostsByTitle);
 router.get("/user", getAllUsers);
 
 //delete all users
-router.delete("/user", deleteAllUsers);
+router.delete("/users", deleteAllUsers);
 
 //register user
 router.post("/register", registerValidation, checkEmail, register);

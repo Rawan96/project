@@ -3,9 +3,10 @@ import { Form, Input, Button, message, Alert } from "antd";
 import { withRouter } from "react-router-dom";
 import GoogleAuthentication from "../GoogleLogin";
 import Axios from "axios";
+import "./index.css";
 
 const Post = withRouter((props) => {
-  const [error, seError] = useState();
+  const [error, setError] = useState();
 
   const layout = {
     labelCol: { span: 8 },
@@ -16,19 +17,21 @@ const Post = withRouter((props) => {
   };
 
   const onFinish = (values) => {
+    console.log(values);
     Axios.post("/api/v/post", values)
-      .then(({ data: { msg } }) => {
-        message.success(msg);
+      .then(({ data }) => {
+        message.success(data.msg);
         props.history.push("/");
       })
       .catch((res) => {
-        seError("Error occur while you are adding the post");
+        console.log(res);
+        setError("Error occur while you are adding the post");
       });
   };
 
   return (
-    <div className="blog-cont">
-      <h1>Add New Post</h1>
+    <div className="post-container">
+      <h2>Add New Post</h2>
       <Form
         {...layout}
         name="basic"

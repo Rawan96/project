@@ -1,0 +1,17 @@
+.login-container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.ant-input-affix-wrapper {
+    border-radius: 35px;
+    border: 1px solid black;
+
+}
+
+.ant-btn-primary {
+    width: 200px;
+    margin-left: 50px;
+    height: 45px;
+    border-radius: 25px;
+}

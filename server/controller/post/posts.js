@@ -28,7 +28,8 @@ const createPost = (req, res) => {
   });
 
   // Save post in the database
-  Post.save(post)
+  post
+    .save(post)
     .then((data) => {
       res.send(data);
     })

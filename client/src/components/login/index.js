@@ -3,6 +3,7 @@ import { Form, Input, Button, message, Alert } from "antd";
 import { withRouter } from "react-router-dom";
 import GoogleAuthentication from "../GoogleLogin";
 import Axios from "axios";
+import "./index.css";
 
 const Login = withRouter((props) => {
   const [error, setError] = useState();
@@ -30,8 +31,8 @@ const Login = withRouter((props) => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="login-container">
+      <h2>Login</h2>
       <Form
         {...layout}
         name="basic"
